@@ -1,0 +1,29 @@
+server:
+  port: 9411
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: zipkin-server
+  sleuth:
+    sampler:
+      percentage: 1.0
+    enabled: false
+
+zipkin:
+  storage:
+    type: elasticsearch
+    StorageComponent: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      max-requests: 30
+      index: zipkin
+      index-shards: 3
+      index-replicas: 1
+      hosts: localhost:9200
+
+#spring.sleuth.sampler.percentage: 1.0
