@@ -18,6 +18,7 @@
 	<modules>
         <module>admin1</module>
 		<module>admin2</module>
+		<module>admin3</module>
     </modules>
 
 	<parent>
