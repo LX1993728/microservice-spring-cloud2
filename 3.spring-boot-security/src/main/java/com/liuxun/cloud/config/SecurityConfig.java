@@ -32,16 +32,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
+    UserDetailsService userDetailsService;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         //auth.inMemoryAuthentication().withUser("liuxun").password("123456").roles("user");
-        auth.userDetailsService(userDetailsService());
+        //auth.userDetailsService(userDetailsService());
+        auth.userDetailsService(userDetailsService);
     }
     
-    @Bean
-    public UserDetailsService userDetailsService(){
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); // 在内存中存放用户信息
-		manager.createUser(User.withUsername("liuxun").password("123456").roles("USER").build());
-		manager.createUser(User.withUsername("admin").password("123456").roles("USER","ADMIN").build());
-		return manager;
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService(){
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); // 在内存中存放用户信息
+//		manager.createUser(User.withUsername("liuxun").password("123456").roles("USER").build());
+//		manager.createUser(User.withUsername("admin").password("123456").roles("USER","ADMIN").build());
+//		return manager;
+//    }
 }
