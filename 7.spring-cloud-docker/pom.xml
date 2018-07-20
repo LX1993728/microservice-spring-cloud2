@@ -18,6 +18,9 @@
 
     <modules>
         <module>eureka-server-docker1</module>
+        <module>eureka-server-docker2</module>
+        <module>eureka-server-docker3</module>
+        <module>eureka-server-docker4</module>
     </modules>
 
     <parent>
