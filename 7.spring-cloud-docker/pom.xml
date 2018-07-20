@@ -17,7 +17,7 @@
     </properties>
 
     <modules>
-        <module>eureka-server</module>
+        <module>eureka-server-docker1</module>
     </modules>
 
     <parent>
