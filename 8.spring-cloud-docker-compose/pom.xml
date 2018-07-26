@@ -22,6 +22,10 @@
         <version>1.4.5.RELEASE</version>
     </parent>
 
+    <modules>
+        <module>eureka-compose-test</module>
+    </modules>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
