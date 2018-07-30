@@ -24,6 +24,7 @@
 
     <modules>
         <module>eureka-compose-test</module>
+        <module>compose-microservices-example</module>
     </modules>
 
     <dependencyManagement>

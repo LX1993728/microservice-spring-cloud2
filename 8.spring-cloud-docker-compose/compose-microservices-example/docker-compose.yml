@@ -1,0 +1,28 @@
+# 表示docker-compose.yml文件使用的是Version 2 file format
+version: '2'
+# Version 2 file format的固定写法，为project定义服务
+services:
+  # 指定服务名称
+  microservice-discovery-eureka:
+    # 指定服务所使用的镜像
+    image: lx1993728/microservice-discovery-eureka:1.0-SNAPSHOT
+    # 暴露端口信息
+    ports:
+      - "8761:8761"
+  microservice-provider-user:
+    image: lx1993728/microservice-provider-user:1.0-SNAPSHOT
+    # 连接到microservice-discovery-eureka，在此处使用的是SERVICE:ALIAS的形式
+    links:
+      - microservice-discovery-eureka:discovery
+  microservice-gateway-zuul:
+    image: lx1993728/microservice-gateway-zuul:1.0-SNAPSHOT
+    links:
+      - microservice-discovery-eureka:discovery
+  microservice-consumer-movie:
+    image: lx1993728/microservice-consumer-movie:1.0-SNAPSHOT
+    links:
+      - microservice-discovery-eureka:discovery
+  microservice-hystrix-turbine:
+    image: lx1993728/microservice-hystrix-turbine:1.0-SNAPSHOT
+    links:
+      - microservice-discovery-eureka:discovery

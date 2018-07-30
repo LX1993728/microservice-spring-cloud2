@@ -1,0 +1,15 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: microservice-consumer-movie
+eureka:
+  client:
+    service-url:
+      defaultZone: http://liuxun:123456@discovery:8761/eureka # 声明注册中心地址
+  instance:
+    prefer-ip-address: true #显示IP地址
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #自定义在注册中心的显示格式，不是必须的
+
+  
