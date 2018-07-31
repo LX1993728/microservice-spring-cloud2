@@ -1,0 +1,22 @@
+security:
+  basic:
+    enabled: true
+  user:
+    name: liuxun
+    password: 123456
+server:
+  port: 8761
+  
+spring:
+  application:
+    name: microservice-discovery-eureka
+eureka:
+  datacenter: cloud
+  environment: product #表示生产环境
+  client:
+    healthcheck:
+      enabled: true # 不是必须的
+    register-with-eureka: false #防止将自身当做Eureka客户端
+    fetch-registry: false       #防止将自身当做Eureka客户端
+    service-url:
+      defaultZone: http://liuxun:123456@discovery:8761/eureka #如果对注册中心登录授权，其用户名和密码要和上边一致

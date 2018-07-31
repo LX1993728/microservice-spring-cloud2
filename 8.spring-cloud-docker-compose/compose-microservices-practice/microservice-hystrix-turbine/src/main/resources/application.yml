@@ -1,0 +1,17 @@
+server:
+  port: 8031
+
+spring:
+  application:
+    name: microservice-hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://liuxun:123456@discovery:8761/eureka # 声明注册中心地址
+  instance:
+    prefer-ip-address: true #显示IP地址
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: microservice-consumer-movie
+  cluster-name-expression: "'default'" #spring的EL表达式 等同于new String("default")

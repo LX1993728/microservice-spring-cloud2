@@ -1,0 +1,34 @@
+server:
+  port: 7901
+#  context-path: /aaa
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql #defalut schema.sql
+    data: classpath:data.sql 
+  application:
+    name: microservice-provider-user  # microservice-provider-user-v1
+
+logging:
+  level:
+    root: info
+    org.hibernate.type.descriptor.sql.BasicBinder: trace #与show-sql 结合打印参数
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace #与show-sql 结合打印参数
+ 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://liuxun:123456@discovery:8761/eureka # 声明注册中心地址
+  instance:
+    prefer-ip-address: true #显示IP地址
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #自定义在注册中心的显示格式，不是必须的
+    metadata-map:
+      zone: ABC   #Eureka 可以理解的
+      name: liuxun # (自定义的) 不会影响客户端行为
+    lease-renewal-interval-in-seconds: 5  # 将Eureka的心跳周期改为5秒
+
