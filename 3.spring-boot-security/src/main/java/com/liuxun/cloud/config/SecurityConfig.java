@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //auth.userDetailsService(userDetailsService());
         auth.userDetailsService(userDetailsService);
     }
-    
+
 //    @Bean
 //    public UserDetailsService userDetailsService(){
 //        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager(); // 在内存中存放用户信息
