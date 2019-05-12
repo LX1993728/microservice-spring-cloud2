@@ -15,7 +15,9 @@
 	</properties>
 
 	<modules>
-		
+
+		<module>service-authorization</module>
+		<module>service-resource</module>
 	</modules>
 
 	<parent>
