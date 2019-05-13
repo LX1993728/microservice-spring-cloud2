@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * AuthenticationManagerBuilder 中配置了验证的用户信息源和密码加密的策略
      * 向IOC中注入此对象，需要在Oauth2 中配置，因为在Oauth2中配置了AuthenticationManagerBuilder 密码验证才会开启
-     *
+     * 在此使用的是 Oauth2 中的密码模式
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
